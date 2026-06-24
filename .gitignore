@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Entornos virtuales
+.venv/
+venv/
+
+# Variables de entorno
+.env
+
+# Modelos entrenados
+*.keras
+*.h5
+*.pth
+
+# Audio
+*.wav
+*.mp3
+*.flac
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
