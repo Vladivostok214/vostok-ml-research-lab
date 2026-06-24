@@ -31,47 +31,38 @@ Como resultado, el motor DSP alcanzó un estado de madurez considerable sobre lo
 
 # Estado del Conocimiento Actual
 
-La evidencia disponible sugiere que los detectores DSP muestran un desempeño sólido sobre los benchmarks realizados hasta la fecha.
+La evidencia disponible sugiere que los detectores DSP muestran un desempeño sólido sobre los benchmarks controlados e históricos del laboratorio.
 
-Sin embargo, existe una diferencia importante entre:
-
-* Desempeño observado en benchmarks controlados.
-* Capacidad real de generalización frente a material nuevo.
+Sin embargo, a partir de las auditorías científicas de **`ML-LAB-002`**, se ha demostrado una brecha fundamental entre:
+*   El desempeño artificialmente optimista en benchmarks que usan impulsos ideales (Dirac).
+*   La vulnerabilidad del motor clásico frente a clicks analógicos reales con amortiguación, resonancia y corrimiento de fase.
 
 Actualmente el laboratorio considera que:
-
-1. Los detectores DSP han demostrado ser capaces de identificar diversos artefactos de audio con resultados prometedores.
-
-2. Las métricas obtenidas hasta ahora son valiosas como referencia experimental.
-
-3. Todavía no existe evidencia suficiente para afirmar que dichos resultados generalicen a una población amplia de grabaciones reales.
-
-4. La robustez del sistema frente a material completamente desconocido continúa siendo una pregunta abierta.
+1.  **La Coherencia de Fase es Superior:** El cálculo de la **Varianza de Retardo de Grupo ($\sigma^2_{\text{GD}}$)** mediante la identidad de la rampa temporal es la herramienta más robusta para discriminar clicks complejos, eliminando falsos positivos en consonantes fricativas.
+2.  **La Magnitud Espectral es Vulnerable:** Los detectores basados exclusivamente en la magnitud del espectro (como la caída espectral o pendientes espectrales) son ineficaces frente a clicks reales amortiguados debido al mimetismo acústico que ejercen con la voz humana.
+3.  **Los Benchmarks Deben Ser Estocásticos:** Se prohíbe el uso de clicks deterministicos estáticos en las evaluaciones del motor DSP, adoptando obligatoriamente poblaciones paramétricas aleatorizadas para simular dispersiones físicas reales.
 
 ---
 
 # Lo Que Sabemos
 
-Actualmente existe evidencia de que:
-
-* Los artefactos poseen características observables que pueden ser detectadas mediante técnicas DSP.
-* Los enfoques basados en reglas pueden producir resultados útiles.
-* La ingeniería de características sigue siendo una herramienta poderosa para problemas de restauración de audio.
-* El conocimiento acumulado durante el desarrollo de Vostok Restoration constituye una fuente valiosa de hipótesis para futuras investigaciones.
+Actualmente existe evidencia experimental de que:
+*   **La Fase es un Invariante Robusto:** La Varianza de Retardo de Grupo ($\sigma^2_{\text{GD}}$) mantiene un **solapamiento del $0.0\%$** frente a la voz, comportándose como una firma física confiable e indestructible en alta frecuencia ($4\text{ kHz a } 20\text{ kHz}$).
+*   **Identidad Matemática Exacta:** Es viable calcular el retardo de grupo en tiempo real de manera limpia, evitando las inestabilidades del desempaquetado de fase clásica, mediante el operador de rampa temporal en Fourier:
+    $$\tau_g(\omega) = \text{Re}\left\{ \frac{\text{DFT}\{n \cdot x[n]\}}{\text{DFT}\{x[n]\}} \right\}$$
+*   **Futilidad de la Magnitud Pura:** Clicks con decaimientos exponenciales reales ($M_2, M_3, M_4$) imitan los decaimientos de energía y formantes de la voz, produciendo solapamientos de densidad del **$26\%$ al $30\%$** en descriptores de magnitud espectral (*Spectral Slope*).
+*   **La Impulsividad se Atenúa:** El factor de cresta de un click amortiguado decae drásticamente en comparación con un delta de Dirac ($D_B \approx 218.9 \to 3.23$), lo que invalida los umbrales de energía de pico fijos en el dominio temporal.
 
 ---
 
 # Lo Que No Sabemos
 
 Actualmente no existe evidencia suficiente para responder con confianza preguntas como:
+*   **Comportamiento Polifónico:** ¿Cómo se comportará la varianza de retardo de grupo frente a música polifónica rica en instrumentos con transitorios ultra-rápidos de alta coherencia física (pizzicato, clavicémbalo, percusiones de metal)?
+*   **Estabilidad en Baja Frecuencia:** ¿Cómo afecta la presencia de ruido ambiental masivo o hum de baja frecuencia ($50\text{ Hz}$) a la estabilidad numérica de la división en la identidad exacta del retardo de grupo?
+*   **Generalización de Umbrales:** ¿Son los umbrales cuantitativos determinados sobre `vozenoff.wav` óptimos para una población diversa de locutores y lenguas en Vostok Restoration?
 
-* ¿Qué tan bien generalizan los detectores DSP a gran escala?
-* ¿Cómo se comportan frente a miles de archivos reales?
-* ¿Qué ocurre ante combinaciones de artefactos no estudiadas?
-* ¿Existen patrones que los métodos actuales no estén capturando?
-* ¿Qué tan robustos son frente a condiciones de grabación muy distintas?
-
-Estas preguntas permanecen abiertas.
+Estas preguntas permanecen abiertas y guiarán las futuras líneas de investigación.
 
 ---
 

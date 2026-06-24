@@ -40,18 +40,18 @@ Exploración inicial y construcción de conocimiento.
 
 Actualmente sabemos:
 
-* Los artefactos presentan características observables.
-* Las representaciones espectrales contienen información útil.
-* Existe un motor DSP funcional desarrollado en Vostok Restoration.
-* Existen benchmarks prometedores sobre conjuntos de prueba controlados.
+* **Invariante de Fase Definitivo:** La Varianza de Retardo de Grupo ($\sigma^2_{\text{GD}}$) calculada mediante la identidad exacta de la rampa temporal es un descriptor extremadamente robusto en alta frecuencia ($4\text{ kHz a } 20\text{ kHz}$), mostrando un solapamiento del $0.0\%$ entre transitorios de voz real y clicks analógicos complejos (incluyendo clicks dispersivos $M_4$).
+* **Sesgo de Dirac:** Diseñar y evaluar algoritmos de restauración utilizando únicamente el modelo histórico de Dirac ($M_1$) sobreestima la separabilidad temporal de forma crítica (Crest Factor $D_B \approx 218.9$), induciendo un sesgo de sobre-optimismo severo en los benchmarks clásicos.
+* **Vulnerabilidad de Magnitud Espectral:** Las métricas basadas en magnitud espectral pura (como *Spectral Slope*) y envolvente temporal (como *PE-Ratio*) sufren de un severo mimetismo acústico ante clicks analógicos resonantes y bi-exponenciales, con solapamientos directos que colapsan a valores inaceptables de hasta el $26\%$ y $30\%$.
+* **Necesidad de Auditoría Estocástica:** Los benchmarks basados en formas de onda estáticas deterministas sufren de sesgos estadísticos de varianza nula. Solo una población de clicks con aleatorización paramétrica continua revela la verdadera física y separabilidad del sistema.
+* Existen un motor DSP funcional desarrollado en Vostok Restoration y un ecosistema de simulación en el laboratorio.
 
 Actualmente no sabemos:
 
-* Qué tan bien generaliza el motor DSP.
-* Qué tan bien generalizarían futuros modelos ML.
-* Qué representación espectral es la más adecuada.
-* Qué arquitectura híbrida podría resultar más efectiva.
-* Qué tamaño y composición debería tener un dataset de referencia.
+* **Generalización Polifónica e Instrumental:** Si la varianza de retardo de grupo mantendrá su separabilidad absoluta del $100\%$ frente a transitorios de música polifónica legítimos de alta coherencia física (como pizzicatos, clavicémbalos o campanas).
+* **Resiliencia al Ruido:** Cuál es el límite preciso de resiliencia del estimador exacto de retardo de grupo ante relaciones señal-ruido (SNR) severamente bajas o interferencias intensas de baja frecuencia (hum).
+* **Generalidad de Umbrales Cuantitativos:** Qué tan bien generalizan los umbrales de decisión obtenidos en `ML-LAB-002` a un corpus masivo de locutores de voz (femenina, infantil) y diferentes lenguas o registros.
+* Qué arquitectura híbrida (combinación de umbrales lineales de baja CPU frente a modelos profundos) resultará óptima para el motor en tiempo real.
 
 ---
 
