@@ -1,17 +1,17 @@
 Modelo,Descriptor,Db,Overlap (%)
 Dirac (M1),PE-Ratio (Tiempo),4.6392188621097645,3.9999999999999987
-Dirac (M1),Crest Factor (Tiempo),218.8902147436795,0.0
+Dirac (M1),Crest Factor (Tiempo),218.89021474367854,0.0
 Dirac (M1),Spectral Slope (Magnitud),2.278946047444438,0.0
 Dirac (M1),GD Variance (Fase),11.820872406507695,0.0
-Bi-exp (M2),PE-Ratio (Tiempo),4.525114053884387,15.999999999999998
-Bi-exp (M2),Crest Factor (Tiempo),7.708767939651388,0.0
-Bi-exp (M2),Spectral Slope (Magnitud),0.46748657779181835,5.999999999999985
-Bi-exp (M2),GD Variance (Fase),11.820872405544463,0.0
+Bi-exp (M2),PE-Ratio (Tiempo),1.2707181905998153,35.999999999999986
+Bi-exp (M2),Crest Factor (Tiempo),3.23706971944171,0.0
+Bi-exp (M2),Spectral Slope (Magnitud),0.46710399871088426,5.999999999999985
+Bi-exp (M2),GD Variance (Fase),9.872884931892349,0.0
 Resonante (M3),PE-Ratio (Tiempo),4.6392188621097645,3.9999999999999987
-Resonante (M3),Crest Factor (Tiempo),27.283334611474753,0.0
-Resonante (M3),Spectral Slope (Magnitud),2.1405771902087136,0.0
-Resonante (M3),GD Variance (Fase),11.8208718835091,0.0
-Dispersivo (M4),PE-Ratio (Tiempo),4.575824618004454,19.99999999999999
-Dispersivo (M4),Crest Factor (Tiempo),24.634281380620042,0.0
-Dispersivo (M4),Spectral Slope (Magnitud),1.6036915826436466,0.0
-Dispersivo (M4),GD Variance (Fase),11.820871498412172,0.0
+Resonante (M3),Crest Factor (Tiempo),17.880907802567574,0.0
+Resonante (M3),Spectral Slope (Magnitud),0.6613009816168888,26.0
+Resonante (M3),GD Variance (Fase),6.967770488103404,0.0
+Dispersivo (M4),PE-Ratio (Tiempo),0.5736929236576072,21.999999999999996
+Dispersivo (M4),Crest Factor (Tiempo),9.504509689564143,0.0
+Dispersivo (M4),Spectral Slope (Magnitud),0.40113458657097983,30.000000000000004
+Dispersivo (M4),GD Variance (Fase),5.570320867168319,0.0
